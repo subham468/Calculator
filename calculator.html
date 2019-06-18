@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+    <script>
+        function insert(num) {
+            document.form.textview.value = document.form.textview.value + num
+        }
+        function equal() {
+            var exp = document.form.textview.value;
+            if(exp){
+                document.form.textview.value = eval(exp)
+            } 
+        }
+        function clean(){
+            document.form.textview.value = "";
+        }
+
+        function back() {
+            var exp = document.form.textview.value;
+            document.form.textview.value = exp.substring(0,exp.length-1);
+        }
+
+    </script>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        .button{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            margin: 2px;
+            cursor: pointer;
+            background: #2b2b40;
+            border: none;
+            color: whitesmoke;  
+        }
+        .textview{
+            width: 210px;
+            height: 25px;
+            margin: 5px;
+            font-size: 25px;
+            padding: 5px;
+            border: none;
+            background-color: #ebebf5;
+        }
+        .main{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translateX(-50%) translateY(-50%);
+            
+        }
+        body{
+            background: linear-gradient(to right,#f5794a,#7171e2);
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color:gold; text-align: center; margin-top: 100px">PaulWEB <span style="color:gold"> Calculator :</span></h1>
+    <div class="main">
+        <form name="form">
+            <input type="text" class="textview" name="textview">
+            <table>
+                <tr>
+                <td><input type="button" class= "button" value="C" onclick="clean()"></td>
+                <td><input type="button" class="button" value="<" onclick="back()"></td>
+                <td><input type="button" class="button" value="/" onclick="insert('/')"></td>
+                <td><input type="button" class="button" value="x" onclick="insert('*')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" class="button" value="7" onclick="insert(7)"></td>
+                    <td><input type="button" class="button" value="8" onclick="insert(8)"></td>
+                    <td><input type="button" class="button" value="9" onclick="insert(9)"></td>
+                    <td><input type="button" class="button" value="-" onclick="insert('-')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" class="button" value="4" onclick="insert(4)"></td>
+                    <td><input type="button" class="button" value="5" onclick="insert(5)"></td>
+                    <td><input type="button" class="button" value="6" onclick="insert(6)"></td>
+                    <td><input type="button" class="button" value="+" onclick="insert('+')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" class="button" value="1" onclick="insert(1)"></td>
+                    <td><input type="button" class="button" value="2" onclick="insert(2)"></td>
+                    <td><input type="button" class="button" value="3" onclick="insert(3)"></td>
+                    <td rowspan="2"><input type="button" style="height:105px" class="button" value="=" onclick="equal()"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" style="width: 110px"  class="button" value="0" onclick="insert(0)"></td>
+                    <td ><input type="button" class="button" value="." onclick="insert('.')"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <footer style="text-align:end; margin-top: 35%; margin-right: 12px;">
+        <h3>Powered by : Subham Paul</h3>
+    </footer>
+    
+</body>
+</html>
